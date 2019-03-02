@@ -10,12 +10,12 @@ import (
 )
 
 func main() {
-
+	fmt.Println("Launching Watcher")
 	currentDir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
-
+	fmt.Println(currentDir)
 	var dirFlag string
 	if dirFlag == "" {
 		dirFlag = currentDir
@@ -30,7 +30,7 @@ func main() {
 	defer watcher.Close()
 
 	done := make(chan bool)
-
+	fmt.Println(dirFlag)
 	go func() {
 		for {
 			select {
